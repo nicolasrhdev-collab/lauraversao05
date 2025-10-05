@@ -1,0 +1,15 @@
+[Unit]
+Description=PHP Folder Sync
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/php /opt/php-folder-sync/sync.php --source /data/in --dest /data/out --mirror --exclude-from /opt/php-folder-sync/excludes.txt
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=multi-user.target
+
+

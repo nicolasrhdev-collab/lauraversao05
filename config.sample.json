@@ -1,0 +1,32 @@
+{
+  "global": {
+    "watch": true,
+    "interval": 3,
+    "mirror": true,
+    "checksum": false,
+    "preserveTimes": true,
+    "followSymlinks": false,
+    "dryRun": false,
+    "verbose": true,
+    "quiet": false,
+    "lock": true,
+    "exclude": ["*.tmp", "*.log", "cache/"],
+    "excludeFrom": []
+  },
+  "jobs": [
+    {
+      "name": "LobbyAssets",
+      "sources": ["/srv/lobby/assets"],
+      "destinations": ["/srv/server1/assets", "/srv/server2/assets"]
+    },
+    {
+      "name": "Configs",
+      "sources": ["/srv/configs"],
+      "destinations": ["/srv/server1/configs", "/srv/server2/configs"],
+      "interval": 10,
+      "exclude": ["*.bak"]
+    }
+  ]
+}
+
+
